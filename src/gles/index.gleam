@@ -1,6 +1,5 @@
 import gleam/dynamic.{type Dynamic}
-import gleam/http.{type Method, Delete, Get, Put}
-import gleam/http/request.{type Request}
+import gleam/http.{Delete, Get, Put}
 import gleam/http/response.{type Response}
 import gleam/option.{type Option, None}
 import gles/client.{type Client, Client, create_request, send_request}

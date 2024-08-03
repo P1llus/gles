@@ -33,7 +33,11 @@ gleam add gles
 ```
 
 ```gleam
+import gleam/http.{Https}
+import gleam/option.{Some}
 import gles
+import gles/client
+import gles/index
 
 pub fn main() {
   let test_client =
@@ -52,7 +56,6 @@ pub fn main() {
       "{ \"settings\": { \"number_of_shards\": 2, \"number_of_replicas\": 0 } }",
     )
   let assert Ok(resp) = index.create_index(new_client, "test-index", body)
-  resp.status |> should.equal(200)
 }
 ```
 
@@ -61,21 +64,21 @@ Further documentation can be found at <https://hexdocs.pm/gles>.
 
 ## TODO
 Currently planned:
-[ ] - Adding type/record definitions for responses and perform automatic decoding.
-[ ] - Logging.
-[x] - Index endpoints
-[ ] - Datastream endpoints
-[ ] - Document endpoints (single)
-[ ] - Documents endpoints (bulk)
-[ ] - Search endpoints
-[ ] - Vector search endpoints
-[ ] - ES|QL endpoints
-[ ] - Cluster stats/state endpoints
+- [ ] Adding type/record definitions for responses and perform automatic decoding.
+- [ ] Logging.
+- [x] Index endpoints
+- [ ] Datastream endpoints
+- [ ] Document endpoints (single)
+- [ ] Documents endpoints (bulk)
+- [ ] Search endpoints
+- [ ] Vector search endpoints
+- [ ] ES|QL endpoints
+- [ ] Cluster stats/state endpoints
 
 Backlog or still under consideration, anything can be added/removed at any time:
-[ ] - Support for long lived connections (keep-alive)
-[ ] - Connection pooling
-[ ] - Type/Record definition for endpoint request, and handling encoding automatically.
+- [ ] Support for long lived connections (keep-alive)
+- [ ] Connection pooling
+- [ ] Type/Record definition for endpoint request, and handling encoding automatically.
 
 ## Contributing
 TBD
