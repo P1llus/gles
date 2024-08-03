@@ -64,16 +64,9 @@ Further documentation can be found at <https://hexdocs.pm/gles>.
 
 ## TODO
 Currently planned:
-- [ ] Adding type/record definitions for responses and perform automatic decoding.
-- [ ] Logging.
-- [x] Index endpoints
-- [ ] Datastream endpoints
-- [ ] Document endpoints (single)
-- [ ] Documents endpoints (bulk)
-- [ ] Search endpoints
-- [ ] Vector search endpoints
-- [ ] ES|QL endpoints
-- [ ] Cluster stats/state endpoints
+- [ ] Adding type/records for API responses: https://github.com/P1llus/gles/issues/2
+- [ ] Logging: https://github.com/P1llus/gles/issues/3
+- [ ] Implementing more endpoints: https://github.com/P1llus/gles/issues/1
 
 Backlog or still under consideration, anything can be added/removed at any time:
 - [ ] Support for long lived connections (keep-alive)
