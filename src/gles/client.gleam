@@ -53,7 +53,7 @@ pub fn set_auth(
 }
 
 pub fn ping(client: Client) -> Result(Response(String), Dynamic) {
-  create_request(client, "/", Get)
+  create_request(client, "/", Get, None)
   |> send_request(client, _)
 }
 
@@ -70,6 +70,7 @@ pub fn create_request(
   client client: Client,
   endpoint endpoint: String,
   method method: Method,
+  body body: Option(String),
 ) -> Request(String) {
   let req =
     request.new()
@@ -77,13 +78,18 @@ pub fn create_request(
     |> request.set_scheme(client.scheme)
     |> request.set_host(client.host)
     |> request.set_path(endpoint)
-  case client.auth_type {
+    |> request.set_header("Content-Type", "application/json")
+  let req = case client.auth_type {
     Some(_) ->
       request.set_header(
         req,
         "Authorization",
         option.unwrap(client.auth_value, ""),
       )
+    None -> req
+  }
+  case body {
+    Some(b) -> request.set_body(req, b)
     None -> req
   }
 }
